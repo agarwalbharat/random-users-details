@@ -4,13 +4,14 @@ import 'randomuser.class.dart';
 class Details extends StatelessWidget {
   final User user;
   final int index;
+
   Details(this.user, this.index);
   Widget _spacing(BuildContext context) {
     return new Row(
       children: <Widget>[
         new Expanded(
           child: new SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
+            height: responsive * 0.01,
             width: 500.0,
           ),
         )
@@ -29,6 +30,9 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+  final double responsive = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: new AppBar(
         title: new Text(user.fullName()),
@@ -40,7 +44,7 @@ class Details extends StatelessWidget {
             children: <Widget>[
               new Container(
                 padding: EdgeInsets.all(0.0),
-                height: MediaQuery.of(context).size.height * 0.2,
+                height: responsive * 0.2,
                 decoration: new BoxDecoration(
                     image: DecorationImage(
                   image:
@@ -54,18 +58,20 @@ class Details extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Container(
                   padding: new EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.15),
+                      top: responsive * 0.15),
                   child: new Card(
                     child: Container(
                       padding: new EdgeInsets.only(
-                          top: MediaQuery.of(context).size.height * 0.15,
-                          bottom: MediaQuery.of(context).size.height * 0.05),
+                          top: responsive * 0.15,
+                          bottom: responsive * 0.05),
                       child: new Column(
                         children: <Widget>[
-                          new Text(
-                            user.fullName(),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 40.0),
+                          Center(
+                            child: new Text(
+                              user.fullName(),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 40.0),
+                            ),
                           ),
                           _spacing(context),
                           new Text(
@@ -74,6 +80,7 @@ class Details extends StatelessWidget {
                           ),
                           _spacing(context),
                           new Text(user.phone),
+                          _spacing(context),
                         ],
                       ),
                     ),
@@ -88,7 +95,7 @@ class Details extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.topCenter,
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.02),
+                      top:  responsive * 0.02),
                   child: new Center(
                     child: new Hero(
                       tag: "image$index",
@@ -102,7 +109,7 @@ class Details extends StatelessWidget {
               ),
               new Container(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.2,
+                  top: responsive * 0.2,
                   left: MediaQuery.of(context).size.width*0.85
                 ),
                 child: new Image.asset(
