@@ -19,11 +19,18 @@ class Details extends StatelessWidget {
             children: <Widget>[
               new Container(
                 padding: EdgeInsets.all(0.0),
-                height: MediaQuery.of(context).size.height * 0.16,
-                decoration: new BoxDecoration(color: Colors.blue),
+                height: MediaQuery.of(context).size.height * 0.2,
+                decoration: new BoxDecoration(
+                    image: DecorationImage(
+                  image:
+                      NetworkImage("https://iambharat.tk/images/hiretpp.jpg"),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  repeat: ImageRepeat.noRepeat,
+                )),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Container(
                   padding: new EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.15),
@@ -66,20 +73,25 @@ class Details extends StatelessWidget {
                         ],
                       ),
                     ),
-                    elevation: 10.0,
+                    elevation: 5.0,
                   ),
                 ),
               ),
-              Container(
-                alignment: Alignment.topCenter,
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.02),
-                child: new Center(
-                  child: new Hero(
-                    tag: "image$index",
-                    child: CircleAvatar(
-                      radius: 100.0,
-                      backgroundImage: new NetworkImage(user.pictureLarge),
+              Card(
+                elevation: 10.0,
+                shape: CircleBorder(),
+                color: Colors.transparent,
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.02),
+                  child: new Center(
+                    child: new Hero(
+                      tag: "image$index",
+                      child: CircleAvatar(
+                        radius: 100.0,
+                        backgroundImage: new NetworkImage(user.pictureLarge),
+                      ),
                     ),
                   ),
                 ),
