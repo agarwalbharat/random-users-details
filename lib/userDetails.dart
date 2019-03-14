@@ -5,6 +5,27 @@ class Details extends StatelessWidget {
   final User user;
   final int index;
   Details(this.user, this.index);
+  Widget _spacing(BuildContext context) {
+    return new Row(
+      children: <Widget>[
+        new Expanded(
+          child: new SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+            width: 500.0,
+          ),
+        )
+      ],
+    );
+  }
+  String menOrWomen(gender){
+    String imageURL = "";
+    if(gender=="male"){
+      imageURL = "images/man.png";
+    }else{
+      imageURL = "images/women.png";
+    }
+    return imageURL;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,35 +62,18 @@ class Details extends StatelessWidget {
                           bottom: MediaQuery.of(context).size.height * 0.05),
                       child: new Column(
                         children: <Widget>[
-                          new Row(
-                            children: <Widget>[
-                              new Expanded(
-                                child: SizedBox(
-                                  height: 10.0,
-                                  width: 500.0,
-                                ),
-                              ),
-                            ],
-                          ),
                           new Text(
                             user.fullName(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 40.0),
                           ),
-                          new Row(
-                            children: <Widget>[
-                              new Expanded(
-                                child: new SizedBox(
-                                  height: 10.0,
-                                  width: 500.0,
-                                ),
-                              )
-                            ],
-                          ),
+                          _spacing(context),
                           new Text(
                             user.email,
                             style: new TextStyle(color: Colors.grey),
                           ),
+                          _spacing(context),
+                          new Text(user.phone),
                         ],
                       ),
                     ),
@@ -96,6 +100,16 @@ class Details extends StatelessWidget {
                   ),
                 ),
               ),
+              new Container(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.2,
+                  left: MediaQuery.of(context).size.width*0.85
+                ),
+                child: new Image.asset(
+                  menOrWomen(user.gender),
+                  height: 20,
+                ),
+              )
             ],
           )
         ],
