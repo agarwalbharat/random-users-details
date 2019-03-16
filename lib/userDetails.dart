@@ -7,6 +7,7 @@ class Details extends StatelessWidget {
 
   Details(this.user, this.index);
   Widget _spacing(BuildContext context) {
+    final responsive = MediaQuery.of(context).size.height;
     return new Row(
       children: <Widget>[
         new Expanded(
