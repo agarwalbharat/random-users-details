@@ -27,6 +27,7 @@ Future<List<User>> userDetails() async {
           pictureLarge: user['picture']['large'],
           pictureSmall: user['picture']['medium'],
           gender: user['gender'],
+          dob:user['dob']['date'],
           );
       users.add(data);
       index++;

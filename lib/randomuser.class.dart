@@ -20,8 +20,9 @@ class User {
   final String pictureSmall;
   final String pictureLarge;
   final String gender;
+  final String dob;
 
-  User({this.index,this.fname,this.lname,this.email,this.phone,this.pictureSmall,this.pictureLarge,this.gender});
+  User({this.index,this.fname,this.lname,this.email,this.phone,this.pictureSmall,this.pictureLarge,this.gender,this.dob});
 
   String fullName(){
     return capitalize(this.fname) + " " + capitalize(this.lname);

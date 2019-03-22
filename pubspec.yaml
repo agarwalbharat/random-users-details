@@ -50,6 +50,11 @@ flutter:
   assets:
     - images/man.png
     - images/women.png
+    - images/icons/facebook_logo.png
+    - images/icons/twitter_logo.png
+    - images/icons/linkedin_logo.png
+    - images/icons/instagram_logo.png
+    - images/icons/website_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -19,11 +19,12 @@ class Details extends StatelessWidget {
       ],
     );
   }
-  String menOrWomen(gender){
+
+  String menOrWomen(gender) {
     String imageURL = "";
-    if(gender=="male"){
+    if (gender == "male") {
       imageURL = "images/man.png";
-    }else{
+    } else {
       imageURL = "images/women.png";
     }
     return imageURL;
@@ -31,8 +32,7 @@ class Details extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-  final double responsive = MediaQuery.of(context).size.height;
+    final double responsive = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: new AppBar(
@@ -58,13 +58,11 @@ class Details extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                 child: Container(
-                  padding: new EdgeInsets.only(
-                      top: responsive * 0.15),
+                  padding: new EdgeInsets.only(top: responsive * 0.15),
                   child: new Card(
                     child: Container(
                       padding: new EdgeInsets.only(
-                          top: responsive * 0.15,
-                          bottom: responsive * 0.05),
+                          top: responsive * 0.15, bottom: responsive * 0.05),
                       child: new Column(
                         children: <Widget>[
                           Center(
@@ -82,6 +80,20 @@ class Details extends StatelessWidget {
                           _spacing(context),
                           new Text(user.phone),
                           _spacing(context),
+                          new Text(
+                            user.dob.split("T")[0],
+                          ),
+                          _spacing(context),
+                          _spacing(context),
+                          new Row(
+                            children: <Widget>[
+                              Image.asset("images/icons/instagram_logo.png"),
+                              Image.asset("images/icons/facebook_logo.png"),
+                              Image.asset("images/icons/instagram_logo.png"),
+                              Image.asset("images/icons/instagram_logo.png"),
+
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -95,8 +107,7 @@ class Details extends StatelessWidget {
                 color: Colors.transparent,
                 child: Container(
                   alignment: Alignment.topCenter,
-                  padding: EdgeInsets.only(
-                      top:  responsive * 0.02),
+                  padding: EdgeInsets.only(top: responsive * 0.02),
                   child: new Center(
                     child: new Hero(
                       tag: "image$index",
@@ -110,9 +121,8 @@ class Details extends StatelessWidget {
               ),
               new Container(
                 padding: EdgeInsets.only(
-                  top: responsive * 0.2,
-                  left: MediaQuery.of(context).size.width*0.85
-                ),
+                    top: responsive * 0.2,
+                    left: MediaQuery.of(context).size.width * 0.85),
                 child: new Image.asset(
                   menOrWomen(user.gender),
                   height: 20,
