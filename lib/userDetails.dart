@@ -86,12 +86,63 @@ class Details extends StatelessWidget {
                           _spacing(context),
                           _spacing(context),
                           new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Image.asset("images/icons/instagram_logo.png"),
-                              Image.asset("images/icons/facebook_logo.png"),
-                              Image.asset("images/icons/instagram_logo.png"),
-                              Image.asset("images/icons/instagram_logo.png"),
-
+                              InkWell(
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                    "images/icons/facebook_logo.png",
+                                    width: 30.0,
+                                  ),
+                                ),
+                                onTap: () {},
+                              ),
+                              InkWell(
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                    "images/icons/instagram_logo.png",
+                                    width: 30.0,
+                                  ),
+                                ),
+                                onTap: () {print("H");},
+                              ),
+                              InkWell(
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                    "images/icons/website_logo.png",
+                                    width: 30.0,
+                                  ),
+                                ),
+                                onTap: () {},
+                              ),
+                              InkWell(
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                    "images/icons/linkedin_logo.png",
+                                    width: 30.0,
+                                  ),
+                                ),
+                                onTap: () {},
+                              ),
+                              InkWell(
+                                child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                    "images/icons/twitter_logo.png",
+                                    width: 30.0,
+                                  ),
+                                ),
+                                onTap: () {},
+                              ),
                             ],
                           )
                         ],
