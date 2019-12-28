@@ -1,0 +1,1 @@
+enum viewState {IsLoading, Done}
