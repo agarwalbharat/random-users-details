@@ -11,7 +11,7 @@ import '../enums.dart';
 class UserState with ChangeNotifier{
   List<User> users = [];
   User _currentSelected;
-  viewState _state = viewState.IsLoading;
+  viewState _state = viewState.Done;
   viewState get state =>_state;
   User get currentSelected => _currentSelected;
   set currentSelected(User curr){
@@ -50,6 +50,7 @@ class UserState with ChangeNotifier{
 
   loadData() async {
     setState(viewState.IsLoading);
+    users = [];
     await _userDetails();
     setState(viewState.Done);
   }
