@@ -9,13 +9,19 @@ import '../enums.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Random Users"),
-      ),
-      body: Consumer<UserState>(
-        builder: (context, userState, _) => (userState.state ==
-                viewState.IsLoading)
+    return Consumer<UserState>(
+      builder: (context, userState, _) => Scaffold(
+        appBar: AppBar(
+          title: Text("Random Users"),
+        ),
+        floatingActionButton: new FloatingActionButton(
+          tooltip: "Reload",
+          child: (userState.state == viewState.IsLoading)?CircularProgressIndicator(backgroundColor: Colors.white,):Icon(Icons.refresh),
+          onPressed: () {
+            userState.loadData();
+          },
+        ),
+        body: (userState.state == viewState.IsLoading)
             ? Center(
                 child: CircularProgressIndicator(),
               )
